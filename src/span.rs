@@ -15,7 +15,7 @@ macro_rules! instrument {
             // Operation type (filled by SQLx or left empty)
             "db.operation" = ::tracing::field::Empty,
             // The SQL query text
-            "db.query.text" = $statement,
+            "db.statement" = $statement,
             // Number of affected rows (to be filled after execution)
             "db.response.affected_rows" = ::tracing::field::Empty,
             // Number of returned rows (to be filled after execution)
@@ -25,7 +25,7 @@ macro_rules! instrument {
             // Table name (optional, left empty)
             "db.sql.table" = ::tracing::field::Empty,
             // Database system (e.g., "postgresql", "sqlite")
-            "db.system.name" = DB::SYSTEM,
+            "db.system" = DB::SYSTEM,
             // Error type, message, and stacktrace (to be filled on error)
             "error.type" = ::tracing::field::Empty,
             "error.message" = ::tracing::field::Empty,
